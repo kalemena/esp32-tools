@@ -1,0 +1,104 @@
+= Setting up ESP32 with micropython
+
+== Board
+
+=== Flash
+
+Connect ESP32 board and find the ttyUSBX used by the board.
+
+    make flash.erase ESP_PORT=/dev/ttyUSB3
+    make flash.write ESP_PORT=/dev/ttyUSB3
+
+NOTE: instruction come from link:https://docs.micropython.org/en/latest/esp32/tutorial/intro.html[Getting Started]
+
+=== Experiments
+
+Run following command to enter link:https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html[REPL console]:
+
+    make repl
+
+Help:
+
+    >>> help()
+    Welcome to MicroPython on the ESP32!
+
+    For generic online docs please visit http://docs.micropython.org/
+
+    For access to the hardware use the 'machine' module:
+
+    import machine
+    pin12 = machine.Pin(12, machine.Pin.OUT)
+    pin12.value(1)
+    pin13 = machine.Pin(13, machine.Pin.IN, machine.Pin.PULL_UP)
+    print(pin13.value())
+    i2c = machine.I2C(scl=machine.Pin(21), sda=machine.Pin(22))
+    i2c.scan()
+    i2c.writeto(addr, b'1234')
+    i2c.readfrom(addr, 4)
+
+    Basic WiFi configuration:
+
+    import network
+    sta_if = network.WLAN(network.STA_IF); sta_if.active(True)
+    sta_if.scan()                             # Scan for available access points
+    sta_if.connect("<AP_name>", "<password>") # Connect to an AP
+    sta_if.isconnected()                      # Check for successful connection
+
+    Control commands:
+    CTRL-A        -- on a blank line, enter raw REPL mode
+    CTRL-B        -- on a blank line, enter normal REPL mode
+    CTRL-C        -- interrupt a running program
+    CTRL-D        -- on a blank line, do a soft reset of the board
+    CTRL-E        -- on a blank line, enter paste mode
+
+    For further help on a specific object, type help(obj)
+    For a list of available modules, type help('modules')
+
+
+Setup WiFi:
+
+    >>> import network
+    >>> sta_if = network.WLAN(network.STA_IF); sta_if.active(True)
+    W (367673) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration
+    I (367803) phy: phy_version: 4102, 2fa7a43, Jul 15 2019, 13:06:06, 0, 2
+    I (367813) wifi: mode : sta (abcdefgh)
+    True
+    I (367813) wifi: STA_START
+    >>> sta_if.connect("xxxxxxxx", "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+    >>> I (430403) wifi: new:<9,1>, old:<1,0>, ap:<255,255>, sta:<9,1>, prof:1
+    I (430973) wifi: state: init -> auth (b0)
+    I (430973) wifi: state: auth -> assoc (0)
+    I (430983) wifi: state: assoc -> run (10)
+    I (430993) wifi: connected with xxxxxxxx, channel 9, 40U, bssid = yyyyyy
+    I (430993) wifi: pm start, type: 1
+    I (431003) network: CONNECTED
+    I (434203) event: sta ip: 192.168.1.52, mask: 255.255.255.0, gw: 192.168.1.254
+    I (434203) network: GOT_IP
+    >>> 
+    >>> sta_if.isconnected() 
+    True
+
+Switch LED:
+
+    >>> import machine
+    >>> pin = machine.Pin(2, machine.Pin.OUT)
+    >>> pin.on()
+    >>> pin.off()
+
+Web REPL:
+
+    # Assuming the WiFi is setup (see above)
+    >>> import webrepl
+    >>> webrepl.start()
+
+    # Connect to http://micropython.org/webrepl/
+    # Set proper IP Address
+
+== IDE
+
+
+
+== Resources
+
+* link:https://randomnerdtutorials.com/getting-started-micropython-esp32-esp8266/[Tutorial #1]
+* link:http://wiki.banana-pi.org/4_Pycharm_IDE_programming[PyCharm with plugin usage]
