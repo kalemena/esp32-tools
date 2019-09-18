@@ -96,7 +96,10 @@ Web REPL:
 
 == IDE
 
+PyCharm can be used as IDE.
 
+- Install plugin *micropython* from Settings/plugin panel
+- Under Plugin configuration, enable micropython and specify the USB path
 
 == Resources
 

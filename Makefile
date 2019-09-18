@@ -6,7 +6,7 @@ all: build
 
 build:
 	docker pull ubuntu:18.04
-	docker build -t kalemena/esp32tools .
+	docker build -t kalemena/esp32tools:latest .
 
 flash.erase:
 	$(COMMAND_PROMPT) esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash
@@ -16,3 +16,6 @@ flash.write:
 
 repl:
 	$(COMMAND_PROMPT) picocom /dev/ttyUSB0 -b115200
+
+pycharm:
+	bash ./pycharm.sh
