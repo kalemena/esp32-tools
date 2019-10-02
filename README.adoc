@@ -112,3 +112,4 @@ PyCharm can be used as IDE.
 
 * link:https://randomnerdtutorials.com/getting-started-micropython-esp32-esp8266/[Tutorial #1]
 * link:http://wiki.banana-pi.org/4_Pycharm_IDE_programming[PyCharm with plugin usage]
+* link:https://towardsdatascience.com/micropython-on-esp-using-jupyter-6f366ff5ed9[Jupyter Notebook]
