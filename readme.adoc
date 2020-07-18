@@ -1,10 +1,10 @@
 = Setting up ESP32 with micropython
 
-ifdef::env-github[:outfilesuffix: .adoc]
 ifdef::env-github[]
-image:https://img.shields.io/travis/kalemena/esp32-tools/master.svg[Travis build status, link=https://travis-ci.org/kalemena/esp32-tools]
-image:https://images.microbadger.com/badges/version/kalemena/esp32tools.svg[Docker Version, link=https://microbadger.com/images/kalemena/esp32tools]
-image:https://images.microbadger.com/badges/image/kalemena/esp32tools.svg[Docker Hub, link=https://hub.docker.com/r/kalemena/esp32tools/tags]
+image:https://github.com/kalemena/esp32-tools/workflows/Pipeline/badge.svg[GitHub Build]
+image:https://img.shields.io/docker/v/kalemena/esp32tools[Docker Hub, link=https://hub.docker.com/r/kalemena/esp32tools/tags]
+image:https://img.shields.io/docker/pulls/kalemena/esp32tools[Docker Hub, link=https://hub.docker.com/r/kalemena/esp32tools/tags]
+image:https://img.shields.io/docker/image-size/kalemena/esp32tools[Docker Hub, link=https://hub.docker.com/r/kalemena/esp32tools/tags]
 endif::[]
 
 == Board
