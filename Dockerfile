@@ -1,9 +1,11 @@
 FROM ubuntu:18.04
 
-ARG MICROPYTHON_FIRMWARE=20190529-v1.11
+# Doc: https://micropython.org/download/esp32/
+# ARG MICROPYTHON_FIRMWARE=20190529-v1.11
+ARG MICROPYTHON_FIRMWARE=idf3-20191220-v1.12
 # https://github.com/micropython/micropython/releases/download/v1.11/micropython-1.11.tar.gz
 
- # Build-time metadata as defined at http://label-schema.org
+# Build-time metadata as defined at http://label-schema.org
 ARG BUILD_DATE
 ARG VCS_REF
 ARG VERSION
