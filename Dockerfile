@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 # Doc: https://micropython.org/download/esp32/
 # ARG MICROPYTHON_FIRMWARE=20190529-v1.11

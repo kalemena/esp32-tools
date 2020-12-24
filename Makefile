@@ -5,7 +5,7 @@ COMMAND_PROMPT := docker run -it --rm --device $(ESP_PORT):/dev/ttyUSB0 kalemena
 all: build
 
 build:
-	docker pull ubuntu:18.04
+	docker pull ubuntu:20.04
 	docker build -t kalemena/esp32tools:latest .
 
 flash.erase:
