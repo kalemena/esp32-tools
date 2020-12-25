@@ -13,7 +13,7 @@ jobs:
     - name: Build Docker Image
       env:
         IMAGE: "kalemena/esp32tools"
-        VERSION: "1.12"
+        VERSION: "idf3-20200902-v1.13"
       run: |
         docker -v
         docker pull ubuntu:20.04

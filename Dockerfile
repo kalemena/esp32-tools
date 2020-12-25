@@ -1,8 +1,7 @@
 FROM ubuntu:20.04
 
 # Doc: https://micropython.org/download/esp32/
-# ARG MICROPYTHON_FIRMWARE=20190529-v1.11
-ARG MICROPYTHON_FIRMWARE=idf3-20191220-v1.12
+ARG MICROPYTHON_FIRMWARE=idf3-20200902-v1.13
 # https://github.com/micropython/micropython/releases/download/v1.11/micropython-1.11.tar.gz
 
 # Build-time metadata as defined at http://label-schema.org
