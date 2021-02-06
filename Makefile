@@ -1,5 +1,8 @@
 
-ESP_PORT := /dev/ttyUSB3
+# Update to match your ttyUSBx
+ESP_PORT := /dev/ttyUSB2
+
+# Do not update
 COMMAND_PROMPT := docker run -it --rm --device $(ESP_PORT):/dev/ttyUSB0 kalemena/esp32tools:latest
 
 all: build

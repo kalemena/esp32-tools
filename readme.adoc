@@ -24,8 +24,11 @@ Run following command to enter link:https://docs.micropython.org/en/latest/esp82
 
     make repl
 
-Help:
+IMPORTANT: exit by Ctrl-A, then Ctrl-Q
 
+.Help:
+[source,bash]
+----
     >>> help()
     Welcome to MicroPython on the ESP32!
 
@@ -60,10 +63,11 @@ Help:
 
     For further help on a specific object, type help(obj)
     For a list of available modules, type help('modules')
+----
 
-
-Setup WiFi:
-
+.Setup WiFi:
+[source,bash]
+----
     >>> import network
     >>> sta_if = network.WLAN(network.STA_IF); sta_if.active(True)
     W (367673) phy_init: failed to load RF calibration data (0x1102), falling back to full calibration
@@ -84,22 +88,27 @@ Setup WiFi:
     >>> 
     >>> sta_if.isconnected() 
     True
+----
 
-Switch LED:
-
+.Switch LED:
+[source,bash]
+----
     >>> import machine
     >>> pin = machine.Pin(2, machine.Pin.OUT)
     >>> pin.on()
     >>> pin.off()
+----
 
-Web REPL:
-
+.Web REPL:
+[source,bash]
+----
     # Assuming the WiFi is setup (see above)
     >>> import webrepl
     >>> webrepl.start()
 
     # Connect to http://micropython.org/webrepl/
     # Set proper IP Address
+----
 
 == IDE
 
