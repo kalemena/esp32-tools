@@ -15,7 +15,7 @@ flash.erase:
 	$(COMMAND_PROMPT) esptool.py --chip esp32 --port /dev/ttyUSB0 erase_flash
 
 flash.write:
-	$(COMMAND_PROMPT) esptool.py --chip esp32 --port /dev/ttyUSB0 write_flash -z 0x1000 /opt/esp32-20190916-v1.11-312-g22099ab88.bin
+	$(COMMAND_PROMPT) esptool.py --chip esp32 --port /dev/ttyUSB0 write_flash -z 0x1000 /opt/esp32-idf3-20210202-v1.14.bin
 
 repl:
 	$(COMMAND_PROMPT) picocom /dev/ttyUSB0 -b115200
