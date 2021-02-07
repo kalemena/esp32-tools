@@ -33,6 +33,9 @@ RUN apt-get -y update && \
 # Flash Tools
 RUN pip3 --no-cache-dir install esptool
 
+# Adafruit Tools
+RUN pip3 --no-cache-dir install adafruit-ampy
+
 # MicroPython Firmware
 RUN cd /opt && \
     wget http://micropython.org/resources/firmware/esp32-${MICROPYTHON_FIRMWARE}.bin

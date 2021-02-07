@@ -18,6 +18,26 @@ Connect ESP32 board and find the ttyUSBX used by the board.
 
 NOTE: instruction come from link:https://docs.micropython.org/en/latest/esp32/tutorial/intro.html[Getting Started]
 
+=== File System
+
+Files are managed with link:https://pythonforundergradengineers.com/upload-py-files-to-esp8266-running-micropython.html[Ampy Adafruit] commands.
+
+.List files
+[source,bash]
+----
+# list files
+$ make ampy.ls
+
+# Get file
+$ ampy --port /dev/ttyUSB0 --baud 115200 get boot.py /project/boot.py
+
+# Write file
+$ ampy --port /dev/ttyUSB0 --baud 115200 put /project/HTU21D.py
+
+# Delete file
+$ ampy --port /dev/ttyUSB0 --baud 115200 rm HTU21D.py
+----
+
 === Experiments
 
 Run following command to enter link:https://docs.micropython.org/en/latest/esp8266/tutorial/repl.html[REPL console]:

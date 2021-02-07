@@ -3,7 +3,9 @@
 ESP_PORT := /dev/ttyUSB2
 
 # Do not update
-COMMAND_PROMPT := docker run -it --rm --device $(ESP_PORT):/dev/ttyUSB0 kalemena/esp32tools:latest
+DOCKER_CMD := docker run -it --rm --device $(ESP_PORT):/dev/ttyUSB0 -v $(CURDIR):/project
+DOCKER_IMAGE := kalemena/esp32tools:latest
+COMMAND_PROMPT := $(DOCKER_CMD) $(DOCKER_IMAGE)
 
 all: build
 
@@ -16,6 +18,12 @@ flash.erase:
 
 flash.write:
 	$(COMMAND_PROMPT) esptool.py --chip esp32 --port /dev/ttyUSB0 write_flash -z 0x1000 /opt/esp32-idf3-20210202-v1.14.bin
+
+ampy.ls:
+	$(COMMAND_PROMPT) ampy --port /dev/ttyUSB0 --baud 115200 ls
+ampy.cmd:
+	$(COMMAND_PROMPT) /bin/bash
+# ampy --port /dev/ttyUSB0 --baud 115200 get boot.py /project/boot.py
 
 repl:
 	$(COMMAND_PROMPT) picocom /dev/ttyUSB0 -b115200
