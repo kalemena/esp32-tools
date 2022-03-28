@@ -1,5 +1,4 @@
-ARG IMAGE_FROM=ubuntu:22.04
-FROM ${IMAGE_FROM}
+FROM ubuntu:22.04
 
 # Doc: https://micropython.org/download/esp32/
 ARG MICROPYTHON_FIRMWARE=20220117-v1.18
