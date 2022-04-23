@@ -7,10 +7,12 @@ DOCKER_CMD := docker run -it --rm --device $(ESP_PORT):/dev/ttyUSB0 -v $(CURDIR)
 DOCKER_IMAGE := kalemena/esp32tools:latest
 COMMAND_PROMPT := $(DOCKER_CMD) $(DOCKER_IMAGE)
 
+IMAGE_FROM := ubuntu:22.04
+
 all: build
 
 build:
-	docker pull ubuntu:20.04
+	docker pull ${IMAGE_FROM}
 	docker build -t kalemena/esp32tools:latest .
 
 flash.erase:
